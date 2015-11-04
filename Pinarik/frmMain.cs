@@ -25,7 +25,7 @@ namespace Pinarik
 
         private void mainForm_Load(object sender, EventArgs e)
         {
-            cbAllYear.Checked = true;
+            cbAllYear.Checked = false;
             for (int y = DateTime.Now.Year; y <= DateTime.Now.Year + 10; y++)
             {
                 cbYear.Items.Add(y);
@@ -33,9 +33,9 @@ namespace Pinarik
 
             for (int i = 1; i <= 12; i++)
             {
-                DateTime dt = new DateTime(DateTime.Now.Year, i, 1);
-                cbMonthFrom.Items.Add(dt.ToString("MMMM"));
-                cbMonthTo.Items.Add(dt.ToString("MMMM"));
+                string month = Global.getNameMonth(i);
+                cbMonthFrom.Items.Add(month);
+                cbMonthTo.Items.Add(month);
             }
 
             cbMonthFrom.SelectedItem = cbMonthTo.SelectedItem = DateTime.Now.ToString("MMMM");
@@ -54,6 +54,8 @@ namespace Pinarik
             this.optionsPinarik.Name = tbName.Text;
             this.optionsPinarik.AllYear = cbAllYear.Checked;
             this.optionsPinarik.Year = Convert.ToInt32(cbYear.Text);
+            this.optionsPinarik.MonthFrom = cbMonthFrom.SelectedIndex + 1;
+            this.optionsPinarik.MonthTo = cbMonthTo.SelectedIndex + 1;
         }
 
         private void tsRun_Click(object sender, EventArgs e)
