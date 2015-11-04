@@ -28,114 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btOpen = new System.Windows.Forms.Button();
-            this.btNew = new System.Windows.Forms.Button();
-            this.btSave = new System.Windows.Forms.Button();
-            this.btPreview = new System.Windows.Forms.Button();
-            this.btClose = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
             this.cbMonthTo = new System.Windows.Forms.ComboBox();
             this.cbMonthFrom = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbYear = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbAllYear = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsNew = new System.Windows.Forms.ToolStripButton();
+            this.tsOpen = new System.Windows.Forms.ToolStripButton();
+            this.tsSave = new System.Windows.Forms.ToolStripButton();
+            this.tsRun = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel2.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(544, 297);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btOpen);
-            this.panel1.Controls.Add(this.btNew);
-            this.panel1.Controls.Add(this.btSave);
-            this.panel1.Controls.Add(this.btPreview);
-            this.panel1.Controls.Add(this.btClose);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 252);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(538, 42);
-            this.panel1.TabIndex = 0;
-            // 
-            // btOpen
-            // 
-            this.btOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btOpen.AutoSize = true;
-            this.btOpen.Location = new System.Drawing.Point(205, 10);
-            this.btOpen.Name = "btOpen";
-            this.btOpen.Size = new System.Drawing.Size(92, 23);
-            this.btOpen.TabIndex = 4;
-            this.btOpen.Text = "Открыть";
-            this.btOpen.UseVisualStyleBackColor = true;
-            // 
-            // btNew
-            // 
-            this.btNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btNew.AutoSize = true;
-            this.btNew.Location = new System.Drawing.Point(107, 10);
-            this.btNew.Name = "btNew";
-            this.btNew.Size = new System.Drawing.Size(92, 23);
-            this.btNew.TabIndex = 3;
-            this.btNew.Text = "Новый";
-            this.btNew.UseVisualStyleBackColor = true;
-            // 
-            // btSave
-            // 
-            this.btSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btSave.AutoSize = true;
-            this.btSave.Location = new System.Drawing.Point(9, 10);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(92, 23);
-            this.btSave.TabIndex = 2;
-            this.btSave.Text = "Сохранить";
-            this.btSave.UseVisualStyleBackColor = true;
-            // 
-            // btPreview
-            // 
-            this.btPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btPreview.AutoSize = true;
-            this.btPreview.Location = new System.Drawing.Point(339, 10);
-            this.btPreview.Name = "btPreview";
-            this.btPreview.Size = new System.Drawing.Size(92, 23);
-            this.btPreview.TabIndex = 1;
-            this.btPreview.Text = "Предпросмотр";
-            this.btPreview.UseVisualStyleBackColor = true;
-            this.btPreview.Click += new System.EventHandler(this.btPreview_Click);
-            // 
-            // btClose
-            // 
-            this.btClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btClose.AutoSize = true;
-            this.btClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btClose.Location = new System.Drawing.Point(437, 10);
-            this.btClose.Name = "btClose";
-            this.btClose.Size = new System.Drawing.Size(92, 23);
-            this.btClose.TabIndex = 0;
-            this.btClose.Text = "Закрыть";
-            this.btClose.UseVisualStyleBackColor = true;
-            this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -144,7 +56,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 73F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.tableLayoutPanel2.Controls.Add(this.cbMonthTo, 3, 3);
             this.tableLayoutPanel2.Controls.Add(this.cbMonthFrom, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
@@ -156,7 +68,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tbName, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 25);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 6;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
@@ -165,19 +77,8 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(538, 243);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 40);
-            this.label5.Margin = new System.Windows.Forms.Padding(5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Название";
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(544, 272);
+            this.tableLayoutPanel2.TabIndex = 2;
             // 
             // cbMonthTo
             // 
@@ -246,17 +147,6 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Месяц по";
             // 
-            // tbName
-            // 
-            this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tableLayoutPanel2.SetColumnSpan(this.tbName, 3);
-            this.tbName.Location = new System.Drawing.Point(76, 35);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(407, 20);
-            this.tbName.TabIndex = 9;
-            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -279,14 +169,95 @@
             this.cbAllYear.UseVisualStyleBackColor = true;
             this.cbAllYear.CheckedChanged += new System.EventHandler(this.cbAllYear_CheckedChanged);
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 40);
+            this.label5.Margin = new System.Windows.Forms.Padding(5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Название";
+            // 
+            // tbName
+            // 
+            this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tableLayoutPanel2.SetColumnSpan(this.tbName, 3);
+            this.tbName.Location = new System.Drawing.Point(76, 35);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(407, 20);
+            this.tbName.TabIndex = 9;
+            // 
+            // toolStrip
+            // 
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsNew,
+            this.tsOpen,
+            this.tsSave,
+            this.toolStripSeparator1,
+            this.tsRun});
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(544, 25);
+            this.toolStrip.TabIndex = 1;
+            this.toolStrip.Text = "toolStrip1";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsNew
+            // 
+            this.tsNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsNew.Image = global::Pinarik.Properties.Resources._new;
+            this.tsNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsNew.Name = "tsNew";
+            this.tsNew.Size = new System.Drawing.Size(23, 22);
+            this.tsNew.Text = "Новый";
+            this.tsNew.ToolTipText = "Создать новый файл настроек";
+            // 
+            // tsOpen
+            // 
+            this.tsOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsOpen.Image = global::Pinarik.Properties.Resources.open;
+            this.tsOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsOpen.Name = "tsOpen";
+            this.tsOpen.Size = new System.Drawing.Size(23, 22);
+            this.tsOpen.Text = "Открыть";
+            this.tsOpen.ToolTipText = "Открыть существующий файл";
+            // 
+            // tsSave
+            // 
+            this.tsSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsSave.Image = global::Pinarik.Properties.Resources.save;
+            this.tsSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsSave.Name = "tsSave";
+            this.tsSave.Size = new System.Drawing.Size(23, 22);
+            this.tsSave.Text = "Сохранить";
+            this.tsSave.ToolTipText = "Сохранить файл настроек";
+            // 
+            // tsRun
+            // 
+            this.tsRun.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsRun.Image = global::Pinarik.Properties.Resources.run;
+            this.tsRun.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsRun.Name = "tsRun";
+            this.tsRun.Size = new System.Drawing.Size(23, 22);
+            this.tsRun.Text = "Предпросмотр";
+            this.tsRun.ToolTipText = "Сформировать пинарик";
+            this.tsRun.Click += new System.EventHandler(this.tsRun_Click);
+            // 
             // frmMain
             // 
-            this.AcceptButton = this.btPreview;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btClose;
             this.ClientSize = new System.Drawing.Size(544, 297);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.toolStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -295,20 +266,17 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Пинарик";
             this.Load += new System.EventHandler(this.mainForm_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btClose;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbYear;
@@ -320,10 +288,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cbAllYear;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Button btPreview;
-        private System.Windows.Forms.Button btOpen;
-        private System.Windows.Forms.Button btNew;
-        private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton tsNew;
+        private System.Windows.Forms.ToolStripButton tsOpen;
+        private System.Windows.Forms.ToolStripButton tsSave;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton tsRun;
     }
 }
 

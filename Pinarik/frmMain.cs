@@ -49,18 +49,18 @@ namespace Pinarik
             cbMonthFrom.Enabled = cbMonthTo.Enabled = !cbAllYear.Checked;
         }
 
-        private void btPreview_Click(object sender, EventArgs e)
-        {
-            this.fillOptions();
-            frmPreview frm = new frmPreview(this.optionsPinarik);
-            frm.ShowDialog();
-        }
-
         private void fillOptions()
         {
             this.optionsPinarik.Name = tbName.Text;
             this.optionsPinarik.AllYear = cbAllYear.Checked;
             this.optionsPinarik.Year = Convert.ToInt32(cbYear.Text);
+        }
+
+        private void tsRun_Click(object sender, EventArgs e)
+        {
+            this.fillOptions();
+            frmPreview frm = new frmPreview(this.optionsPinarik);
+            frm.ShowDialog();
         }
     }
 }
