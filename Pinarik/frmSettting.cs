@@ -9,13 +9,20 @@ using System.Windows.Forms;
 
 namespace Pinarik
 {
-    public partial class frmMain : Form
+    public partial class frmSettting : Form
     {
-        private Options optionsPinarik;
+        private PinarikData pinarikData;
 
-        public frmMain()
+        public frmSettting() 
+            : this(new PinarikData())
+        {
+        }
+
+        public frmSettting(PinarikData data)
         {
             InitializeComponent();
+
+            this.pinarikData = data;
         }
 
         private void btClose_Click(object sender, EventArgs e)
@@ -25,7 +32,7 @@ namespace Pinarik
 
         private void mainForm_Load(object sender, EventArgs e)
         {
-            cbAllYear.Checked = false;
+            cbAllYear.Checked = this.pinarikData.AllYear;
             for (int y = DateTime.Now.Year; y <= DateTime.Now.Year + 10; y++)
             {
                 cbYear.Items.Add(y);
@@ -38,10 +45,11 @@ namespace Pinarik
                 cbMonthTo.Items.Add(month);
             }
 
-            cbMonthFrom.SelectedItem = cbMonthTo.SelectedItem = DateTime.Now.ToString("MMMM");
-            cbYear.SelectedItem = DateTime.Now.Year;
+            cbMonthFrom.SelectedItem = new DateTime(this.pinarikData.Year, this.pinarikData.MonthFrom, 1).ToString("MMMM");
+            cbMonthTo.SelectedItem = new DateTime(this.pinarikData.Year, this.pinarikData.MonthTo, 1).ToString("MMMM");
+            cbYear.SelectedItem = this.pinarikData.Year;
 
-            this.optionsPinarik = new Options(); 
+            tbName.Text = this.pinarikData.Name;
         }
 
         private void cbAllYear_CheckedChanged(object sender, EventArgs e)
@@ -51,18 +59,24 @@ namespace Pinarik
 
         private void fillOptions()
         {
-            this.optionsPinarik.Name = tbName.Text;
-            this.optionsPinarik.AllYear = cbAllYear.Checked;
-            this.optionsPinarik.Year = Convert.ToInt32(cbYear.Text);
-            this.optionsPinarik.MonthFrom = cbMonthFrom.SelectedIndex + 1;
-            this.optionsPinarik.MonthTo = cbMonthTo.SelectedIndex + 1;
+            this.pinarikData.Name = tbName.Text;
+            this.pinarikData.AllYear = cbAllYear.Checked;
+            this.pinarikData.Year = Convert.ToInt32(cbYear.Text);
+            this.pinarikData.MonthFrom = cbMonthFrom.SelectedIndex + 1;
+            this.pinarikData.MonthTo = cbMonthTo.SelectedIndex + 1;
         }
 
         private void tsRun_Click(object sender, EventArgs e)
         {
             this.fillOptions();
-            frmPreview frm = new frmPreview(this.optionsPinarik);
+            frmPreview frm = new frmPreview(this.pinarikData);
             frm.ShowDialog();
+        }
+
+        public PinarikData GetOptions()
+        {
+            this.fillOptions();
+            return this.pinarikData;
         }
     }
 }

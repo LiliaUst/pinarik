@@ -7,32 +7,32 @@ using System.Configuration;
 
 namespace Pinarik
 {
-    public class PinarikPreview
+    public class PinarikView
     {
-        private Options options;
+        private PinarikData pinarikData;
         private static string templateIndex = "";
         private static string templateMonth = "";
         private static string templateDayActive = "";
         private static string templateDayInactive = "";
 
-        public PinarikPreview(Options options)
+        public PinarikView(PinarikData data)
         {
-            this.options = options;
+            this.pinarikData = data;
         }
-        public string GetContent()
+        public string CreateView()
         {
             //ConfigurationManager.AppSettings["MyKey"];
 
             //Configuration currentConfig = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             //currentConfig.AppSettings.Settings["server"].Value = _serverTextBox.Text;
 
-            PinarikPreview.InitTemplate();
+            PinarikView.InitTemplate();
 
             var uri = new Uri(Path.GetFullPath(ConfigurationManager.AppSettings["templateStyle"]));
            
             string content = "";
-            int monthBegin = this.options.AllYear ? 1 : this.options.MonthFrom;
-            int monthEnd = this.options.AllYear ? 12 : this.options.MonthTo;
+            int monthBegin = this.pinarikData.AllYear ? 1 : this.pinarikData.MonthFrom;
+            int monthEnd = this.pinarikData.AllYear ? 12 : this.pinarikData.MonthTo;
             string month = "";
 
             for (int numMonth = monthBegin; numMonth <= monthEnd; numMonth++)
@@ -47,7 +47,7 @@ namespace Pinarik
                 .Replace("$langPage", "ru")
                 .Replace("$titlePage", "Пинарик")
                 .Replace("$style", uri.AbsoluteUri)
-                .Replace("$title", this.options.Year + (!String.IsNullOrEmpty(this.options.Name) ? " - " + this.options.Name : ""))
+                .Replace("$title", this.pinarikData.Year + (!String.IsNullOrEmpty(this.pinarikData.Name) ? " - " + this.pinarikData.Name : ""))
                 .Replace("$month", month);
 
             return content;
@@ -56,24 +56,22 @@ namespace Pinarik
         private string GetDays(int numMonth)
         {
             string days = "";
-
-            int x = 8, y = 8;
-            DateTime dt = new DateTime(this.options.Year, numMonth, 2);
+            DateTime dt = new DateTime(this.pinarikData.Year, numMonth, 2);
 
             for (int l = 1; l <= 7; l++)
             {
             }
 
-            int day = Global.getDayOfWeek(numMonth, this.options.Year);
+            int day = Global.getDayOfWeek(numMonth, this.pinarikData.Year);
             int i = 1;
             for (; i < day; i++)
             {
-                days += PinarikPreview.templateDayInactive;
+                days += PinarikView.templateDayInactive;
             }
 
-            for (int numDay = 1; i < DateTime.DaysInMonth(this.options.Year, numMonth) + day; i++, numDay++)
+            for (int numDay = 1; i < DateTime.DaysInMonth(this.pinarikData.Year, numMonth) + day; i++, numDay++)
             {
-                days += PinarikPreview.templateDayActive.Replace("$day", numDay.ToString());
+                days += PinarikView.templateDayActive.Replace("$day", numDay.ToString());
             }
 
             int cnt = i % 7 == 0 ? 1 : (7 - i % 7 + 1);
@@ -81,41 +79,52 @@ namespace Pinarik
             {
                 for (int j = 1; j <= cnt; j++, i++)
                 {
-                    days += PinarikPreview.templateDayInactive;
+                    days += PinarikView.templateDayInactive;
                 }
             }
             return days;
         }
         private static void InitTemplate()
         {
-            if (String.IsNullOrEmpty(PinarikPreview.templateIndex))
+            if (String.IsNullOrEmpty(PinarikView.templateIndex))
             {
                 using (StreamReader templ = new StreamReader(Path.GetFullPath(ConfigurationManager.AppSettings["templateIndex"])))
                 {
-                    PinarikPreview.templateIndex = templ.ReadToEnd();
+                    PinarikView.templateIndex = templ.ReadToEnd();
                 }
             }
-            if (String.IsNullOrEmpty(PinarikPreview.templateMonth))
+            if (String.IsNullOrEmpty(PinarikView.templateMonth))
             {
                 using (StreamReader templ = new StreamReader(Path.GetFullPath(ConfigurationManager.AppSettings["templateMonth"])))
                 {
-                    PinarikPreview.templateMonth = templ.ReadToEnd();
+                    PinarikView.templateMonth = templ.ReadToEnd();
                 }
             }
-            if (String.IsNullOrEmpty(PinarikPreview.templateDayActive))
+            if (String.IsNullOrEmpty(PinarikView.templateDayActive))
             {
                 using (StreamReader templ = new StreamReader(Path.GetFullPath(ConfigurationManager.AppSettings["templateDayActive"])))
                 {
-                    PinarikPreview.templateDayActive = templ.ReadToEnd();
+                    PinarikView.templateDayActive = templ.ReadToEnd();
                 }
             }
-            if (String.IsNullOrEmpty(PinarikPreview.templateDayInactive))
+            if (String.IsNullOrEmpty(PinarikView.templateDayInactive))
             {
                 using (StreamReader templ = new StreamReader(Path.GetFullPath(ConfigurationManager.AppSettings["templateDayInactive"])))
                 {
-                    PinarikPreview.templateDayInactive = templ.ReadToEnd();
+                    PinarikView.templateDayInactive = templ.ReadToEnd();
                 }
             }
         }
+
+        public string CreateViewFile()
+        {
+            string pathTmpPreview = Path.GetFullPath("index.html");
+            StreamWriter wr = new StreamWriter(pathTmpPreview);
+            wr.Write(this.CreateView());
+            wr.Close();
+            return pathTmpPreview;
+        }
+
+        
     }
 }

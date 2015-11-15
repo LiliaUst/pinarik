@@ -1,6 +1,6 @@
 ﻿namespace Pinarik
 {
-    partial class frmMain
+    partial class frmSettting
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -39,14 +39,11 @@
             this.cbAllYear = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsNew = new System.Windows.Forms.ToolStripButton();
-            this.tsOpen = new System.Windows.Forms.ToolStripButton();
-            this.tsSave = new System.Windows.Forms.ToolStripButton();
-            this.tsRun = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btClose = new System.Windows.Forms.Button();
+            this.btOK = new System.Windows.Forms.Button();
             this.tableLayoutPanel2.SuspendLayout();
-            this.toolStrip.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -68,7 +65,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tbName, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 25);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 6;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
@@ -77,7 +74,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(544, 272);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(544, 151);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // cbMonthTo
@@ -191,87 +188,62 @@
             this.tbName.Size = new System.Drawing.Size(407, 20);
             this.tbName.TabIndex = 9;
             // 
-            // toolStrip
+            // panel1
             // 
-            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsNew,
-            this.tsOpen,
-            this.tsSave,
-            this.toolStripSeparator1,
-            this.tsRun});
-            this.toolStrip.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(544, 25);
-            this.toolStrip.TabIndex = 1;
-            this.toolStrip.Text = "toolStrip1";
+            this.panel1.Controls.Add(this.btOK);
+            this.panel1.Controls.Add(this.btClose);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 151);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(544, 48);
+            this.panel1.TabIndex = 10;
             // 
-            // toolStripSeparator1
+            // btClose
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.btClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btClose.Location = new System.Drawing.Point(457, 13);
+            this.btClose.Name = "btClose";
+            this.btClose.Size = new System.Drawing.Size(75, 23);
+            this.btClose.TabIndex = 0;
+            this.btClose.Text = "Закрыть";
+            this.btClose.UseVisualStyleBackColor = true;
             // 
-            // tsNew
+            // btOK
             // 
-            this.tsNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsNew.Image = global::Pinarik.Properties.Resources._new;
-            this.tsNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsNew.Name = "tsNew";
-            this.tsNew.Size = new System.Drawing.Size(23, 22);
-            this.tsNew.Text = "Новый";
-            this.tsNew.ToolTipText = "Создать новый файл настроек";
+            this.btOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btOK.Location = new System.Drawing.Point(376, 13);
+            this.btOK.Name = "btOK";
+            this.btOK.Size = new System.Drawing.Size(75, 23);
+            this.btOK.TabIndex = 1;
+            this.btOK.Text = "ОК";
+            this.btOK.UseVisualStyleBackColor = true;
             // 
-            // tsOpen
+            // frmSettting
             // 
-            this.tsOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsOpen.Image = global::Pinarik.Properties.Resources.open;
-            this.tsOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsOpen.Name = "tsOpen";
-            this.tsOpen.Size = new System.Drawing.Size(23, 22);
-            this.tsOpen.Text = "Открыть";
-            this.tsOpen.ToolTipText = "Открыть существующий файл";
-            // 
-            // tsSave
-            // 
-            this.tsSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsSave.Image = global::Pinarik.Properties.Resources.save;
-            this.tsSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsSave.Name = "tsSave";
-            this.tsSave.Size = new System.Drawing.Size(23, 22);
-            this.tsSave.Text = "Сохранить";
-            this.tsSave.ToolTipText = "Сохранить файл настроек";
-            // 
-            // tsRun
-            // 
-            this.tsRun.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsRun.Image = global::Pinarik.Properties.Resources.run;
-            this.tsRun.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsRun.Name = "tsRun";
-            this.tsRun.Size = new System.Drawing.Size(23, 22);
-            this.tsRun.Text = "Предпросмотр";
-            this.tsRun.ToolTipText = "Сформировать пинарик";
-            this.tsRun.Click += new System.EventHandler(this.tsRun_Click);
-            // 
-            // frmMain
-            // 
+            this.AcceptButton = this.btOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 297);
+            this.CancelButton = this.btClose;
+            this.ClientSize = new System.Drawing.Size(544, 199);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.toolStrip);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmMain";
+            this.Name = "frmSettting";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Пинарик";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Настройки";
             this.Load += new System.EventHandler(this.mainForm_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.toolStrip.ResumeLayout(false);
-            this.toolStrip.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -288,12 +260,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cbAllYear;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.ToolStrip toolStrip;
-        private System.Windows.Forms.ToolStripButton tsNew;
-        private System.Windows.Forms.ToolStripButton tsOpen;
-        private System.Windows.Forms.ToolStripButton tsSave;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton tsRun;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btClose;
+        private System.Windows.Forms.Button btOK;
     }
 }
 

@@ -12,14 +12,14 @@ namespace Pinarik
 {
     public partial class frmPreview : Form
     {
-        private Options options = null;
-        private PinarikPreview pinarik = null;
+        private PinarikData pinarikData = null;
+        private PinarikView pinarikView = null;
 
-        public frmPreview(Options options)
+        public frmPreview(PinarikData data)
         {
             InitializeComponent();
 
-            this.SetOptions(options);
+            this.SetOptions(data);
             this.Redraw();
             //this.userControl11.setOptions(options);
             //this.userControl11.redraw();
@@ -31,43 +31,35 @@ namespace Pinarik
             //this.reportViewer1.RefreshReport();
         }
 
-        private void SetOptions(Options options)
+        private void SetOptions(PinarikData data)
         {
-            this.options = options;
-            this.pinarik = new PinarikPreview(this.options);
+            this.pinarikData = data;
+            this.pinarikView = new PinarikView(this.pinarikData);
         }
 
         private void Redraw()
         {
-            string pathTmpPreview = Path.GetFullPath("index.html");
-            StreamWriter wr = new StreamWriter(pathTmpPreview);
-            wr.Write(this.pinarik.GetContent());
-            wr.Close();
-
-            webControl1.Source = new Uri(pathTmpPreview);
-
-            //webControl1.LoadHTML(this.pinarik.GetContent());
-
-            //container.Navigate("about:blank");
-            //container.Document.Write(this.pinarik.GetContent());
-
-            //byte[] byteArray = Encoding.UTF8.GetBytes(this.pinarik.GetContent());
-            //MemoryStream stream = new MemoryStream(byteArray);
-            //container.DocumentStream = stream;
-
-
-            //container.DocumentText = this.pinarik.GetContent();
-            //this.name.Text = this.options.Year + (!String.IsNullOrEmpty(this.options.Name) ? " - " + this.options.Name : "");
-
-            //monthControl1.setOptions(this.options.MonthFrom, this.options.Year);
-            //monthControl1.redraw();
-
-            
+            webControl1.Source = new Uri(this.pinarikView.CreateViewFile());
         }
 
         private void frmPreview_FormClosed(object sender, FormClosedEventArgs e)
         {
             webControl1.Dispose();
+        }
+
+        private void tsPrint_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Пока не реализовано");
+        }
+
+        private void tsSettings_Click(object sender, EventArgs e)
+        {
+            frmSettting frm = new frmSettting(this.pinarikData);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                this.SetOptions(frm.GetOptions());
+                this.Redraw();
+            }
         }
 
 

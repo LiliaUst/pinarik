@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Pinarik
 {
-    public class Options
+    public class PinarikData
     {
         private string name = "";
         public string Name
@@ -31,11 +31,16 @@ namespace Pinarik
             get { return monthFrom; }
             set { monthFrom = value; }
         }
-        private int monthTo = 1;
+        private int monthTo = 12;
         public int MonthTo
         {
             get { return monthTo; }
             set { monthTo = value; }
+        }
+
+        public PinarikData()
+        {
+            this.year = DateTime.Now.Year;
         }
     }
 }
