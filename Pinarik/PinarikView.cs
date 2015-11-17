@@ -28,7 +28,8 @@ namespace Pinarik
 
             PinarikView.InitTemplate();
 
-            var uri = new Uri(Path.GetFullPath(ConfigurationManager.AppSettings["templateStyle"]));
+            Uri uriStyle = new Uri(Path.GetFullPath(ConfigurationManager.AppSettings["templateStyle"]));
+            Uri uriBootstrap = new Uri(Path.GetFullPath(ConfigurationManager.AppSettings["templateBootstrap"]));
            
             string content = "";
             int monthBegin = this.pinarikData.AllYear ? 1 : this.pinarikData.MonthFrom;
@@ -39,14 +40,15 @@ namespace Pinarik
             {
                 string days = this.GetDays(numMonth);
                 month += templateMonth
-                    .Replace("$titleMonth", Global.getNameMonth(numMonth))
+                    .Replace("$titleMonth", DateTimeEx.getNameMonth(numMonth))
                     .Replace("$days", days);
             }
 
             content = templateIndex
                 .Replace("$langPage", "ru")
                 .Replace("$titlePage", "Пинарик")
-                .Replace("$style", uri.AbsoluteUri)
+                .Replace("$style", uriStyle.AbsoluteUri)
+                .Replace("$bootstrap", uriBootstrap.AbsoluteUri)
                 .Replace("$title", this.pinarikData.Year + (!String.IsNullOrEmpty(this.pinarikData.Name) ? " - " + this.pinarikData.Name : ""))
                 .Replace("$month", month);
 
@@ -62,7 +64,7 @@ namespace Pinarik
             {
             }
 
-            int day = Global.getDayOfWeek(numMonth, this.pinarikData.Year);
+            int day = DateTimeEx.getDayOfWeek(numMonth, this.pinarikData.Year);
             int i = 1;
             for (; i < day; i++)
             {
@@ -122,9 +124,12 @@ namespace Pinarik
             StreamWriter wr = new StreamWriter(pathTmpPreview);
             wr.Write(this.CreateView());
             wr.Close();
+
+            UriView = pathTmpPreview;
             return pathTmpPreview;
         }
 
-        
+
+        public string UriView { get; set; }
     }
 }

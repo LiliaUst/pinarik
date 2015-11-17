@@ -40,7 +40,7 @@ namespace Pinarik
 
             for (int i = 1; i <= 12; i++)
             {
-                string month = Global.getNameMonth(i);
+                string month = DateTimeEx.getNameMonth(i);
                 cbMonthFrom.Items.Add(month);
                 cbMonthTo.Items.Add(month);
             }

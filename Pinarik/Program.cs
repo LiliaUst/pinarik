@@ -11,7 +11,7 @@ namespace Pinarik
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main()  // мим
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

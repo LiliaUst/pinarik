@@ -7,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing.Printing;
+using Awesomium.Windows.Forms;
+using Awesomium.Core;
+using System.Diagnostics;
+using Microsoft.Win32;
 
 namespace Pinarik
 {
@@ -21,14 +26,12 @@ namespace Pinarik
 
             this.SetOptions(data);
             this.Redraw();
-            //this.userControl11.setOptions(options);
-            //this.userControl11.redraw();
         }
 
         private void frmPreview_Load(object sender, EventArgs e)
         {
-
-            //this.reportViewer1.RefreshReport();
+            try { ProcessEx.SetIE9KeyforWebBrowserControl(Process.GetCurrentProcess().ProcessName + ".exe"); }
+            catch { }
         }
 
         private void SetOptions(PinarikData data)
@@ -36,22 +39,25 @@ namespace Pinarik
             this.pinarikData = data;
             this.pinarikView = new PinarikView(this.pinarikData);
         }
-
+        
         private void Redraw()
         {
-            webControl1.Source = new Uri(this.pinarikView.CreateViewFile());
+            this.pinarikView.CreateViewFile();
+            webBrowser1.Navigate(new Uri(this.pinarikView.UriView));
         }
 
         private void frmPreview_FormClosed(object sender, FormClosedEventArgs e)
         {
-            webControl1.Dispose();
+            
         }
 
         private void tsPrint_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Пока не реализовано");
-        }
+            
+            webBrowser1.ShowPrintPreviewDialog();
 
+        }
+        
         private void tsSettings_Click(object sender, EventArgs e)
         {
             frmSettting frm = new frmSettting(this.pinarikData);
@@ -60,6 +66,16 @@ namespace Pinarik
                 this.SetOptions(frm.GetOptions());
                 this.Redraw();
             }
+        }
+
+        private void tsOpenHtml_Click(object sender, EventArgs e)
+        {
+            Process.Start(this.pinarikView.UriView);
+        }
+
+        private void tsExportHtml_Click(object sender, EventArgs e)
+        {
+            webBrowser1.ShowSaveAsDialog();
         }
 
 

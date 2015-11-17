@@ -28,29 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPreview));
-            this.webControl1 = new Awesomium.Windows.Forms.WebControl(this.components);
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.tsPrint = new System.Windows.Forms.ToolStripButton();
+            this.tsOpenHtml = new System.Windows.Forms.ToolStripButton();
+            this.tsExportHtml = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsSettings = new System.Windows.Forms.ToolStripButton();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.toolStripMain.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // webControl1
-            // 
-            this.webControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webControl1.Location = new System.Drawing.Point(0, 38);
-            this.webControl1.NavigationInfo = Awesomium.Core.NavigationInfo.None;
-            this.webControl1.Size = new System.Drawing.Size(1284, 557);
-            this.webControl1.TabIndex = 5;
             // 
             // toolStripMain
             // 
             this.toolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsPrint,
+            this.tsOpenHtml,
+            this.tsExportHtml,
             this.toolStripSeparator1,
             this.tsSettings});
             this.toolStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
@@ -71,6 +68,28 @@
             this.tsPrint.ToolTipText = "Печать пинарика";
             this.tsPrint.Click += new System.EventHandler(this.tsPrint_Click);
             // 
+            // tsOpenHtml
+            // 
+            this.tsOpenHtml.Image = global::Pinarik.Properties.Resources.open;
+            this.tsOpenHtml.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsOpenHtml.Name = "tsOpenHtml";
+            this.tsOpenHtml.Size = new System.Drawing.Size(38, 35);
+            this.tsOpenHtml.Text = "Html";
+            this.tsOpenHtml.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsOpenHtml.ToolTipText = "Открыть Html файл";
+            this.tsOpenHtml.Click += new System.EventHandler(this.tsOpenHtml_Click);
+            // 
+            // tsExportHtml
+            // 
+            this.tsExportHtml.Image = global::Pinarik.Properties.Resources.save;
+            this.tsExportHtml.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsExportHtml.Name = "tsExportHtml";
+            this.tsExportHtml.Size = new System.Drawing.Size(56, 35);
+            this.tsExportHtml.Text = "Экспорт";
+            this.tsExportHtml.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsExportHtml.ToolTipText = "Сохранить пинарик в Html-файл";
+            this.tsExportHtml.Click += new System.EventHandler(this.tsExportHtml_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -87,13 +106,36 @@
             this.tsSettings.ToolTipText = "Настройка пинарика";
             this.tsSettings.Click += new System.EventHandler(this.tsSettings_Click);
             // 
+            // printDocument1
+            // 
+            this.printDocument1.DocumentName = "Pinarik";
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 38);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(1284, 557);
+            this.webBrowser1.TabIndex = 7;
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // frmPreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1284, 595);
-            this.Controls.Add(this.webControl1);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.toolStripMain);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -114,11 +156,15 @@
 
         #endregion
 
-        private Awesomium.Windows.Forms.WebControl webControl1;
         private System.Windows.Forms.ToolStrip toolStripMain;
         private System.Windows.Forms.ToolStripButton tsPrint;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsSettings;
+        private System.Windows.Forms.ToolStripButton tsOpenHtml;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.ToolStripButton tsExportHtml;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
 
 
 
