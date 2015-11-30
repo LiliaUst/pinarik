@@ -5,42 +5,42 @@ using System.Text;
 
 namespace Pinarik
 {
+    /// <summary>
+    /// Предназначен для хранения текущих настроек пинарика.
+    /// </summary>
     public class PinarikData
     {
-        private string name = "";
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-        private int year = 0;
-        public int Year
-        {
-            get { return year; }
-            set { year = value; }
-        }
-        private bool allYear = true;
-        public bool AllYear
-        {
-            get { return allYear; }
-            set { allYear = value; }
-        }
-        private int monthFrom = 1;
-        public int MonthFrom
-        {
-            get { return monthFrom; }
-            set { monthFrom = value; }
-        }
-        private int monthTo = 12;
-        public int MonthTo
-        {
-            get { return monthTo; }
-            set { monthTo = value; }
-        }
+        /// <summary>
+        /// Получение или установка названия пинарика.
+        /// </summary>
+        public string Name { get; set; }
+        /// <summary>
+        /// Получение или установка года пинарика.
+        /// </summary>
+        public int Year { get; set; }
+        /// <summary>
+        /// Получение или установка признака, что нужно печатать все месяцы года
+        /// </summary>
+        public bool AllYear { get; set; }
+        /// <summary>
+        /// Получение или установка месяца, с которого печатается пинарик.
+        /// </summary>
+        public int MonthFrom { get; set; }
+        /// <summary>
+        /// Получение или установка месяца, до которого печатается пинарик.
+        /// </summary>
+        public int MonthTo { get; set; }
 
+        /// <summary>
+        /// Конструирует экземпляр настройки пинарика.
+        /// </summary>
         public PinarikData()
         {
-            this.year = DateTime.Now.Year;
+            this.Name = "";
+            this.Year = DateTime.Now.Year;
+            this.AllYear = true;
+            this.MonthFrom = 1;
+            this.MonthTo = 12;
         }
     }
 }
